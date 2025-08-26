@@ -151,23 +151,46 @@
 // #9 While & For Loops
 // Use a while loop to count down from 5 to 1. Then, with a for loop, print the numbers 1 through 5.
 
-let ctdStartNumber = document.getElementById("ctdtxtbox");
-const ctdEndNumber = 1;
-let ctdBTN = document.getElementById("ctdbtn");
-let showCTD = document.getElementById("showctd");
+// let ctdStartNumber = document.getElementById("ctdtxtbox");
+// const ctdEndNumber = 1;
+// let ctdBTN = document.getElementById("ctdbtn");
+// let showCTD = document.getElementById("showctd");
 
-function countdownWhile(){
-    let ctdStart = Number(ctdStartNumber.value);
-    while (ctdStart >= ctdEndNumber){
-        showCTD.innerHTML += `${ctdStart}<br>`;
-        ctdStart--;
+// function countdownWhile(){
+//     let ctdStart = Number(ctdStartNumber.value);
+//     while (ctdStart >= ctdEndNumber){
+//         showCTD.innerHTML += `${ctdStart}<br>`;
+//         ctdStart--;
+//     }
+//     let ctdStart2 = Number(ctdStartNumber.value);
+//     for(let i=ctdStart2; ctdStart2>ctdEndNumber; ctdStart2--){
+//         showCTD.innerHTML += `${i}<br>`;
+//     }
+// }
+
+// ctdBTN.onclick = countdownWhile;
+
+// # 10 Arrays + Spread Operator + Function Expression
+// Write a function expression that takes three numbers, but call it using an array [2, 4, 6] and the spread operator. The function should log the sum of the three numbers.
+
+let arrsubmitbtn = document.getElementById("arrsubmit");
+let arrh3 = document.getElementById("arrh3");
+
+function sumfunc(...nums){
+    let result = 0;
+    for(let num of nums){
+        result += num;
     }
-    let ctdStart2 = Number(ctdStartNumber.value);
-    for(let i=ctdStart2; ctdStart2>ctdEndNumber; ctdStart2--){
-        showCTD.innerHTML += `${i}<br>`;
-    }
+    arrh3.textContent = `Result: ${result}`;
 }
 
+arrsubmitbtn.onclick = () => {
+    let num1 = Number(document.getElementById("num1txt").value);
+    let num2 = Number(document.getElementById("num2txt").value);
+    let num3 = Number(document.getElementById("num3txt").value);
+
+    let nums = [num1, num2, num3];
+    sumfunc(...nums);
+};
 
 
-ctdBTN.onclick = countdownWhile;
