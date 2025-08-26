@@ -30,10 +30,16 @@ let rand = document.getElementById('randombtn');
 let displayrand = document.getElementById('randomdisplay');
 
 function randomize(){
-    let upper = up.value;
-    let downer = down.value;
-    result = Math.floor((Math.random() * upper) + downer);
-    displayrand.textContent = `Your random number is ${result}`;
+    const upper = Number(up.value);
+    const downer = Number(down.value);
+
+    let result = Math.floor(Math.random() * (upper - downer)) + downer;
+    if (result > 50){
+        displayrand.textContent = ` You Won! Your random number is ${result}`;
+    }
+    else{
+        displayrand.textContent = ` You Lost! Your random number is ${result}`;
+    }
 }
 
 rand.onclick = randomize;
