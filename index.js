@@ -281,18 +281,42 @@
 
 // console.log(names);
 
-class Rectangle{
-    constructor(width, height) {
-        this.width = width;
-        this.height=height;
-    }
 
-    getArea(){
-        return this.width*this.height;
+// #14 Classes + Constructors + Methods
+// Create a class Rectangle with a constructor that takes width and height. Add a method getArea() that returns the area. Instantiate two rectangles and print their areas.
+
+// class Rectangle{
+//     constructor(width, height) {
+//         this.width = width;
+//         this.height=height;
+//     }
+
+//     getArea(){
+//         return this.width*this.height;
+//     }
+// }
+
+// let rect1 = new Rectangle(width=20, height=40);
+// console.log(rect1.getArea());
+// let rect2 = new Rectangle(width=40, height=50);
+// console.log(rect2.getArea());
+
+// #15 Inheritance + Super + This
+// Create a Person class with properties name and age. Then extend it with a Student class that adds a grade. Use super() inside the Student constructor to initialize name and age.
+
+class Person{
+    constructor(name, age){
+        this.name=name;
+        this.age=age;
     }
 }
 
-let rect1 = new Rectangle(width=20, height=40);
-console.log(rect1.getArea());
-let rect2 = new Rectangle(width=40, height=50);
-console.log(rect2.getArea());
+class Student extends Person{
+    constructor(name,age,grade){
+        super(name,age);
+        this.grade=grade;
+    }
+}
+
+const st1 = new Student("Naod", 21, 4.0);
+console.log(st1);
