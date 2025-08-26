@@ -73,3 +73,43 @@
 // }
 
 // checkBTN.onclick = isFamily;
+
+// #6 Switches & String Methods
+// Ask the user for a day of the week (e.g., "monday"). Convert the input to lowercase and use a switch statement to log a custom message for each day.
+
+let day = document.getElementById("datetxtbox");
+let answerBTN = document.getElementById("answerbtn");
+let displayAnswer = document.getElementById("displayanswer");
+
+function guessTheDate(){
+    let date = day.value.toLowerCase();
+    switch (date){
+        case "monday":
+            displayAnswer.textContent = `Yess today is monday.`;
+            break;
+        case "tuesday":
+            displayAnswer.textContent = `Yeah Tuesday is the day.`;
+            break;
+        case "wednesday":
+            displayAnswer.textContent = `Alright Wednesday here we go.`
+            break;
+        case "thursday":
+            displayAnswer.textContent = `Are we there yet thursdays.`
+            break;
+        case "friday":
+            displayAnswer.textContent = `What! How! and then the week is almost over Friday.`
+            break;
+        case "saturday":
+            displayAnswer.textContent = `Shall I study Nah Now is the time for games.`
+            break;
+        case "sunday":
+            displayAnswer.textContent = `Sunday lets go to church.`
+            break;
+        default:
+            displayAnswer.textContent = `What are you talking about, there is no such date.`
+            break;
+    }
+
+}
+
+answerBTN.onclick = guessTheDate;
