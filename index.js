@@ -304,19 +304,30 @@
 // #15 Inheritance + Super + This
 // Create a Person class with properties name and age. Then extend it with a Student class that adds a grade. Use super() inside the Student constructor to initialize name and age.
 
-class Person{
-    constructor(name, age){
-        this.name=name;
-        this.age=age;
+// class Person{
+//     constructor(name, age){
+//         this.name=name;
+//         this.age=age;
+//     }
+// }
+
+// class Student extends Person{
+//     constructor(name,age,grade){
+//         super(name,age);
+//         this.grade=grade;
+//     }
+// }
+
+// const st1 = new Student("Naod", 21, 4.0);
+// console.log(st1);
+
+// #16 Static + Objects + Methods
+// Create a class MathHelper with a static method square(n). Show that you can call MathHelper.square(5) without creating an instance. Why is that useful compared to regular methods?
+
+class MathHelper1{
+    static square(n){
+        return n**2;
     }
 }
 
-class Student extends Person{
-    constructor(name,age,grade){
-        super(name,age);
-        this.grade=grade;
-    }
-}
-
-const st1 = new Student("Naod", 21, 4.0);
-console.log(st1);
+console.log(MathHelper1.square(100));
