@@ -196,30 +196,58 @@
 // #11 Rest Parameters + Arrow Functions + Reduce()
 // Create an arrow function that takes any number of numeric arguments (using rest parameters) and returns their product using reduce().
 
-let addBTN = document.getElementById('addbtn');
-let resultBTN = document.getElementById('resultbtn')
-let newH3= document.getElementById('newh3');
+// let addBTN = document.getElementById('addbtn');
+// let resultBTN = document.getElementById('resultbtn')
+// let newH3= document.getElementById('newh3');
 
-let nums = [];
+// let nums = [];
 
-function multiplication(accumulator, element){
-    return accumulator * element;
-}
+// function multiplication(accumulator, element){
+//     return accumulator * element;
+// }
 
-function showanswer(...nums){
-    if (nums.length >0){
-        let product = nums.reduce(multiplication);
-        newH3.textContent = `${product}`;
+// function showanswer(...nums){
+//     if (nums.length >0){
+//         let product = nums.reduce(multiplication);
+//         newH3.textContent = `${product}`;
+//     }
+//     else{
+//         newH3.textContent = `You haven't entered any number.`;
+//     }
+// }
+
+// addBTN.onclick = () => {
+//     num = Number(document.getElementById('numtxt').value);
+//     nums.push(num);
+//     newH3.textContent = `You have added ${num} to the list.`
+// }
+
+// resultBTN.onclick = () => showanswer(...nums);
+
+// #12 forEach() + Objects + This
+// You have an object:
+
+// const user = {
+//   name: "Naod",
+//   hobbies: ["coding", "farming", "reading"],
+//   showHobbies() {
+//     this.hobbies.forEach(function(hobby) {
+//       console.log(this.name + " likes " + hobby);
+//     });
+//   }
+// };
+
+
+// Why does this.name not work inside forEach? How can you fix it? (Try arrow functions or .bind(this)).
+
+const user = {
+    name: "Naod",
+    hobbies: ['coding', 'farming', 'reading'],
+    showHobbies(){
+        this.hobbies.forEach(hobby => {
+            console.log(this.name + " likes " + hobby);
+        });
     }
-    else{
-        newH3.textContent = `You haven't entered any number.`;
-    }
-}
+};
 
-addBTN.onclick = () => {
-    num = Number(document.getElementById('numtxt').value);
-    nums.push(num);
-    newH3.textContent = `You have added ${num} to the list.`
-}
-
-resultBTN.onclick = () => showanswer(...nums);
+user.showHobbies();
