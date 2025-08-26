@@ -240,14 +240,43 @@
 
 // Why does this.name not work inside forEach? How can you fix it? (Try arrow functions or .bind(this)).
 
-const user = {
-    name: "Naod",
-    hobbies: ['coding', 'farming', 'reading'],
-    showHobbies(){
-        this.hobbies.forEach(hobby => {
-            console.log(this.name + " likes " + hobby);
-        });
-    }
-};
+// const user = {
+//     name: "Naod",
+//     hobbies: ['coding', 'farming', 'reading'],
+//     showHobbies(){
+//         this.hobbies.forEach(hobby => {
+//             console.log(this.name + " likes " + hobby);
+//         });
+//     }
+// };
 
-user.showHobbies();
+// user.showHobbies();
+
+
+// #13 Map() + Filter() + Destructuring
+// Given an array of people objects:
+// const people = [
+//   {name: "Alice", age: 25},
+//   {name: "Bob", age: 17},
+//   {name: "Charlie", age: 30}
+// ];
+// Use filter() to keep only adults (18+), then map() with destructuring to create an array of just their names.
+
+const people = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 17},
+    {name: "Charlie", age: 30}
+];
+
+const adults = people.filter(adultified);
+
+function adultified(person){
+    return person.age>=18 ;
+}
+
+const names = adults.map(nameOnly);
+function nameOnly({name}){
+    return name;
+}
+
+console.log(names);
