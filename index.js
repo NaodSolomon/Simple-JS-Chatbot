@@ -114,16 +114,36 @@
 
 // answerBTN.onclick = guessTheDate;
 
-// String Slicing & Method Chaining
+// # 7 String Slicing & Method Chaining
 // Given the string " JavaScript is Fun! ", trim the spaces, convert it to uppercase, and slice out "SCRIPT".
-let text = document.getElementById("mytext");
-let btn = document.getElementById("mybtn");
-let myh = document.getElementById("myh3");
+// let text = document.getElementById("mytext");
+// let btn = document.getElementById("mybtn");
+// let myh = document.getElementById("myh3");
 
-function structureText(){
-    myText = text.value.toUpperCase().trim();
-    newText = myText.slice(4,10)
-    myh.textContent = newText;
+// function structureText(){
+//     myText = text.value.toUpperCase().trim();
+//     newText = myText.slice(4,10)
+//     myh.textContent = newText;
+// }
+
+// btn.onclick = structureText;
+
+// #8 Logical Operators & Strict Equality
+// Write a condition that checks if a user’s password is strictly equal (===) to "admin123" and the username is not "guest". Log "Access granted" or "Access denied".
+let user = document.getElementById("usernametxtbox");
+let pwd = document.getElementById("Passwordtxtbox");
+let btnsub = document.getElementById("btnsubmit");
+let shH3 = document.getElementById("showh3");
+
+function Auth(){
+    let userName = user.value;
+    let PwD = pwd.value;
+    if (PwD === `admin123` && userName != "guest"){
+        shH3.textContent = `Access Granted!`;
+    }
+    else{
+        shH3.textContent = `Access Denied!`;
+    }
 }
 
-btn.onclick = structureText;
+btnsub.onclick = Auth;
