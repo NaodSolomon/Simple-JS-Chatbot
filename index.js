@@ -130,20 +130,44 @@
 
 // #8 Logical Operators & Strict Equality
 // Write a condition that checks if a user’s password is strictly equal (===) to "admin123" and the username is not "guest". Log "Access granted" or "Access denied".
-let user = document.getElementById("usernametxtbox");
-let pwd = document.getElementById("Passwordtxtbox");
-let btnsub = document.getElementById("btnsubmit");
-let shH3 = document.getElementById("showh3");
+// let user = document.getElementById("usernametxtbox");
+// let pwd = document.getElementById("Passwordtxtbox");
+// let btnsub = document.getElementById("btnsubmit");
+// let shH3 = document.getElementById("showh3");
 
-function Auth(){
-    let userName = user.value;
-    let PwD = pwd.value;
-    if (PwD === `admin123` && userName != "guest"){
-        shH3.textContent = `Access Granted!`;
+// function Auth(){
+//     let userName = user.value;
+//     let PwD = pwd.value;
+//     if (PwD === `admin123` && userName != "guest"){
+//         shH3.textContent = `Access Granted!`;
+//     }
+//     else{
+//         shH3.textContent = `Access Denied!`;
+//     }
+// }
+
+// btnsub.onclick = Auth;
+
+// #9 While & For Loops
+// Use a while loop to count down from 5 to 1. Then, with a for loop, print the numbers 1 through 5.
+
+let ctdStartNumber = document.getElementById("ctdtxtbox");
+const ctdEndNumber = 1;
+let ctdBTN = document.getElementById("ctdbtn");
+let showCTD = document.getElementById("showctd");
+
+function countdownWhile(){
+    let ctdStart = Number(ctdStartNumber.value);
+    while (ctdStart >= ctdEndNumber){
+        showCTD.innerHTML += `${ctdStart}<br>`;
+        ctdStart--;
     }
-    else{
-        shH3.textContent = `Access Denied!`;
+    let ctdStart2 = Number(ctdStartNumber.value);
+    for(let i=ctdStart2; ctdStart2>ctdEndNumber; ctdStart2--){
+        showCTD.innerHTML += `${i}<br>`;
     }
 }
 
-btnsub.onclick = Auth;
+
+
+ctdBTN.onclick = countdownWhile;
