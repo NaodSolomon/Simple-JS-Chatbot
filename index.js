@@ -324,10 +324,35 @@
 // #16 Static + Objects + Methods
 // Create a class MathHelper with a static method square(n). Show that you can call MathHelper.square(5) without creating an instance. Why is that useful compared to regular methods?
 
-class MathHelper1{
-    static square(n){
-        return n**2;
+// class MathHelper1{
+//     static square(n){
+//         return n**2;
+//     }
+// }
+
+// console.log(MathHelper1.square(100));
+
+
+// #17 Getters & Setters + Private Properties (simulated)
+// Make a class Account with a private-like property _balance. Add a getter for balance and a setter that only accepts positive values. Show what happens if you try to set a negative balance.
+
+class Account{
+    constructor(balance){
+        this.balance=balance;
+    }
+
+    set balance(newBalance){
+        if(newBalance > 0){
+            this._balance = newBalance;
+        }
+        else{
+            console.error("Balance must be a positive number.");
+        }
+    }
+    get balance(){
+        return this._balance;
     }
 }
 
-console.log(MathHelper1.square(100));
+const acc1 = new Account(-200);
+console.log(acc1.balance)
