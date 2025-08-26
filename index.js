@@ -262,21 +262,37 @@
 // ];
 // Use filter() to keep only adults (18+), then map() with destructuring to create an array of just their names.
 
-const people = [
-    {name: "Alice", age: 25},
-    {name: "Bob", age: 17},
-    {name: "Charlie", age: 30}
-];
+// const people = [
+//     {name: "Alice", age: 25},
+//     {name: "Bob", age: 17},
+//     {name: "Charlie", age: 30}
+// ];
 
-const adults = people.filter(adultified);
+// const adults = people.filter(adultified);
 
-function adultified(person){
-    return person.age>=18 ;
+// function adultified(person){
+//     return person.age>=18 ;
+// }
+
+// const names = adults.map(nameOnly);
+// function nameOnly({name}){
+//     return name;
+// }
+
+// console.log(names);
+
+class Rectangle{
+    constructor(width, height) {
+        this.width = width;
+        this.height=height;
+    }
+
+    getArea(){
+        return this.width*this.height;
+    }
 }
 
-const names = adults.map(nameOnly);
-function nameOnly({name}){
-    return name;
-}
-
-console.log(names);
+let rect1 = new Rectangle(width=20, height=40);
+console.log(rect1.getArea());
+let rect2 = new Rectangle(width=40, height=50);
+console.log(rect2.getArea());
