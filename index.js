@@ -173,24 +173,53 @@
 // # 10 Arrays + Spread Operator + Function Expression
 // Write a function expression that takes three numbers, but call it using an array [2, 4, 6] and the spread operator. The function should log the sum of the three numbers.
 
-let arrsubmitbtn = document.getElementById("arrsubmit");
-let arrh3 = document.getElementById("arrh3");
+// let arrsubmitbtn = document.getElementById("arrsubmit");
+// let arrh3 = document.getElementById("arrh3");
 
-function sumfunc(...nums){
-    let result = 0;
-    for(let num of nums){
-        result += num;
-    }
-    arrh3.textContent = `Result: ${result}`;
+// function sumfunc(...nums){
+//     let result = 0;
+//     for(let num of nums){
+//         result += num;
+//     }
+//     arrh3.textContent = `Result: ${result}`;
+// }
+
+// arrsubmitbtn.onclick = () => {
+//     let num1 = Number(document.getElementById("num1txt").value);
+//     let num2 = Number(document.getElementById("num2txt").value);
+//     let num3 = Number(document.getElementById("num3txt").value);
+
+//     let nums = [num1, num2, num3];
+//     sumfunc(...nums);
+// };
+
+// #11 Rest Parameters + Arrow Functions + Reduce()
+// Create an arrow function that takes any number of numeric arguments (using rest parameters) and returns their product using reduce().
+
+let addBTN = document.getElementById('addbtn');
+let resultBTN = document.getElementById('resultbtn')
+let newH3= document.getElementById('newh3');
+
+let nums = [];
+
+function multiplication(accumulator, element){
+    return accumulator * element;
 }
 
-arrsubmitbtn.onclick = () => {
-    let num1 = Number(document.getElementById("num1txt").value);
-    let num2 = Number(document.getElementById("num2txt").value);
-    let num3 = Number(document.getElementById("num3txt").value);
+function showanswer(...nums){
+    if (nums.length >0){
+        let product = nums.reduce(multiplication);
+        newH3.textContent = `${product}`;
+    }
+    else{
+        newH3.textContent = `You haven't entered any number.`;
+    }
+}
 
-    let nums = [num1, num2, num3];
-    sumfunc(...nums);
-};
+addBTN.onclick = () => {
+    num = Number(document.getElementById('numtxt').value);
+    nums.push(num);
+    newH3.textContent = `You have added ${num} to the list.`
+}
 
-
+resultBTN.onclick = () => showanswer(...nums);
