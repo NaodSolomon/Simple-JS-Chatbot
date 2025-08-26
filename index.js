@@ -336,23 +336,42 @@
 // #17 Getters & Setters + Private Properties (simulated)
 // Make a class Account with a private-like property _balance. Add a getter for balance and a setter that only accepts positive values. Show what happens if you try to set a negative balance.
 
-class Account{
-    constructor(balance){
-        this.balance=balance;
-    }
+// class Account{
+//     constructor(balance){
+//         this.balance=balance;
+//     }
 
-    set balance(newBalance){
-        if(newBalance > 0){
-            this._balance = newBalance;
-        }
-        else{
-            console.error("Balance must be a positive number.");
-        }
-    }
-    get balance(){
-        return this._balance;
-    }
+//     set balance(newBalance){
+//         if(newBalance > 0){
+//             this._balance = newBalance;
+//         }
+//         else{
+//             console.error("Balance must be a positive number.");
+//         }
+//     }
+//     get balance(){
+//         return this._balance;
+//     }
+// }
+
+// const acc1 = new Account(-200);
+// console.log(acc1.balance)
+
+// Callbacks + Array Methods + Arrow Functions
+// Write a function processArray(arr, callback) that takes an array and a callback. Inside, use forEach() to apply the callback to each element. Call it with [1,2,3] and a callback that doubles the numbers.
+
+let doubledArr;
+let nums = [1,2,3];
+function double(num){
+    return num *2;
 }
 
-const acc1 = new Account(-200);
-console.log(acc1.balance)
+function processArray(arr, callback){
+    let doubledArr = [];
+        arr.forEach(element => {
+           doubledArr.push(callback(element)) 
+    });
+    return doubledArr;
+}
+
+console.log(processArray(nums, double));
