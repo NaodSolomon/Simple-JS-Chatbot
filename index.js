@@ -482,12 +482,41 @@
 // #23 Dates + Sorting
 // You have an array of event objects with a date property (string like "2025-08-26"). Sort the events from earliest to latest.
 
-const event1 = new Date("2025-08-26");
-const event2 = new Date("2024-06-01");
-const event3 = new Date("2025-06-14");
-const event4 = new Date("2026-01-01");
+// const event1 = new Date("2025-08-26");
+// const event2 = new Date("2024-06-01");
+// const event3 = new Date("2025-06-14");
+// const event4 = new Date("2026-01-01");
 
-let events = [event1, event2, event3, event4];
+// let events = [event1, event2, event3, event4];
 
-const sortedEvents = events.sort((a,b) => a - b)
-console.log(sortedEvents);
+// const sortedEvents = events.sort((a,b) => a - b)
+// console.log(sortedEvents);
+
+// #24 Dates + Nested Objects
+// Create an object meeting with a property time set to the current date using new Date(). Add a nested object organizer with name and email. Print the meeting’s year and the organizer’s email.
+
+let orgName = document.getElementById("organizerName");
+let orgEmail = document.getElementById("organizeremail");
+let meetingBtn = document.getElementById("submitmeeting");
+let meetingH3 = document.getElementById("meetingscreen");
+
+function scheduleMeeting(name, email) {
+    let meeting = {
+        time: new Date(),
+        organizer: {
+            name: name,
+            email: email
+        }
+    };
+
+    // Extract year
+    let year = meeting.time.getFullYear();
+
+    meetingH3.textContent = 
+        `The meeting is scheduled in the year ${year}.
+This meeting is organized by ${meeting.organizer.name}.
+For more information, contact them at ${meeting.organizer.email}.`;
+}
+
+// 👇 Now we pass the function correctly
+meetingBtn.onclick = () => scheduleMeeting(orgName.value, orgEmail.value);
