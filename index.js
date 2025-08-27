@@ -357,21 +357,85 @@
 // const acc1 = new Account(-200);
 // console.log(acc1.balance)
 
-// Callbacks + Array Methods + Arrow Functions
+// #18 Callbacks + Array Methods + Arrow Functions
 // Write a function processArray(arr, callback) that takes an array and a callback. Inside, use forEach() to apply the callback to each element. Call it with [1,2,3] and a callback that doubles the numbers.
 
-let doubledArr;
-let nums = [1,2,3];
-function double(num){
-    return num *2;
+// let doubledArr;
+// let nums = [1,2,3];
+// function double(num){
+//     return num *2;
+// }
+
+// function processArray(arr, callback){
+//     let doubledArr = [];
+//         arr.forEach(element => {
+//            doubledArr.push(callback(element)) 
+//     });
+//     return doubledArr;
+// }
+
+// console.log(processArray(nums, double));
+
+// #19 Destructuring + Spread Operator + Classes
+// You have:
+
+// const car = {brand: "Toyota", model: "Corolla", year: 2020};
+
+
+// Use destructuring to extract brand and model. Then create a Car class and use the spread operator to pass the object values into the constructor.
+
+// const car = {brand: "Toyota", model: "Corolla", year: 2020};
+
+// class Car{
+//     constructor(brand, model, year){
+//         this.brand = brand;
+//         this.model = model;
+//         this.year = year;
+//     }
+    
+//     display(){
+//         console.log(`Brand: ${this.brand}\nModel: ${this.model}`)
+//     }
+// }
+
+// const {brand, model} = car;
+
+// const car1 = new Car(car.brand, car.model);
+// car1.display();
+
+// #20 Nested Objects + Arrays of Objects
+// Create an object school with a property students, which is an array of objects. Each student should have a name and grades (an array of numbers). Write code to log the average grade for the first student.
+
+class Students{
+    constructor(name, grades) {
+        this.name = name;
+        this.grades = grades;
+    }
+
+    average() {
+    const sum = this.grades.reduce((a, b) => a + b);
+    return sum / this.grades.length;
+  }
 }
 
-function processArray(arr, callback){
-    let doubledArr = [];
-        arr.forEach(element => {
-           doubledArr.push(callback(element)) 
+class School{
+    constructor(students){
+        this.students = students;
+    }
+
+    display() {
+    this.students.forEach(element => {
+        console.log(`Student Name: ${element.name}`);
+        console.log(`Average Grade: ${element.average()}`);
+        console.log(`-----------------------`);
     });
-    return doubledArr;
+
+  }
 }
 
-console.log(processArray(nums, double));
+const abebe = new Students("Abebe", [24,54,66,72] )
+const kebede = new Students("Kebede", [55,65,90,79])
+const liya = new Students("Liya", [60,90,10,70])
+
+const school = new School([abebe,kebede,liya]);
+school.display();
