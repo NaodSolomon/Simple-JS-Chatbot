@@ -495,28 +495,56 @@
 // #24 Dates + Nested Objects
 // Create an object meeting with a property time set to the current date using new Date(). Add a nested object organizer with name and email. Print the meeting’s year and the organizer’s email.
 
-let orgName = document.getElementById("organizerName");
-let orgEmail = document.getElementById("organizeremail");
-let meetingBtn = document.getElementById("submitmeeting");
-let meetingH3 = document.getElementById("meetingscreen");
+// let orgName = document.getElementById("organizerName");
+// let orgEmail = document.getElementById("organizeremail");
+// let meetingBtn = document.getElementById("submitmeeting");
+// let meetingH3 = document.getElementById("meetingscreen");
 
-function scheduleMeeting(name, email) {
-    let meeting = {
-        time: new Date(),
-        organizer: {
-            name: name,
-            email: email
+// function scheduleMeeting(name, email) {
+//     let meeting = {
+//         time: new Date(),
+//         organizer: {
+//             name: name,
+//             email: email
+//         }
+//     };
+
+//     // Extract year
+//     let year = meeting.time.getFullYear();
+
+//     meetingH3.textContent = 
+//         `The meeting is scheduled in the year ${year}.
+// This meeting is organized by ${meeting.organizer.name}.
+// For more information, contact them at ${meeting.organizer.email}.`;
+// }
+
+// // 👇 Now we pass the function correctly
+// meetingBtn.onclick = () => scheduleMeeting(orgName.value, orgEmail.value);
+
+
+// #24 Closures + SetTimeout()
+// Write a function countdown(n) that uses setTimeout() inside a closure to log numbers from n down to 1, with a 1-second delay between logs.
+
+let startNum = document.getElementById("startnum");
+let beginBtn = document.getElementById("begincount");
+
+function countdown(){
+
+    return function decrement(n){
+        for(let i=n; i>0; i--){
+            setTimeout(() => console.log(`Num: ${i}`), (n - i + 1)* 1000);
+            }
+            setTimeout(() => console.log("Your countdown has ended."), n * 1000);
         }
     };
 
-    // Extract year
-    let year = meeting.time.getFullYear();
+const count = countdown();
 
-    meetingH3.textContent = 
-        `The meeting is scheduled in the year ${year}.
-This meeting is organized by ${meeting.organizer.name}.
-For more information, contact them at ${meeting.organizer.email}.`;
-}
-
-// 👇 Now we pass the function correctly
-meetingBtn.onclick = () => scheduleMeeting(orgName.value, orgEmail.value);
+beginBtn.onclick = () => {
+    let num = Number(startNum.value);
+    if (!isNaN(num) && num > 0) {
+        count(num);
+    } else {
+        console.log("Please enter a valid positive number!");
+    }
+};
