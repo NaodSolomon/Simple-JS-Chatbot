@@ -465,16 +465,29 @@
 // #22 Shuffle an Array + Sorting
 // Write a function shuffleAndSort(arr) that first shuffles an array randomly, then sorts it in ascending order.
 
-function shuffleAndSort(arr){
+// function shuffleAndSort(arr){
 
-    for (let i= arr.length - 1; i>0; i--){
-        let j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]]
-    }
+//     for (let i= arr.length - 1; i>0; i--){
+//         let j = Math.floor(Math.random() * (i + 1));
+//         [arr[i], arr[j]] = [arr[j], arr[i]]
+//     }
     
-    return arr.sort((a,b) => a-b);
-}
+//     return arr.sort((a,b) => a-b);
+// }
 
-let arr = [10, 50, 43, 60, 80,1,2,44,12,78,23,33,11,9,6,4,55,70];
+// let arr = [10, 50, 43, 60, 80,1,2,44,12,78,23,33,11,9,6,4,55,70];
 
-console.log(shuffleAndSort(arr));
+// console.log(shuffleAndSort(arr));
+
+// #23 Dates + Sorting
+// You have an array of event objects with a date property (string like "2025-08-26"). Sort the events from earliest to latest.
+
+const event1 = new Date("2025-08-26");
+const event2 = new Date("2024-06-01");
+const event3 = new Date("2025-06-14");
+const event4 = new Date("2026-01-01");
+
+let events = [event1, event2, event3, event4];
+
+const sortedEvents = events.sort((a,b) => a - b)
+console.log(sortedEvents);
