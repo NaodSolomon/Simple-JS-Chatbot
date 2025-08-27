@@ -522,29 +522,48 @@
 // meetingBtn.onclick = () => scheduleMeeting(orgName.value, orgEmail.value);
 
 
-// #24 Closures + SetTimeout()
+// #25 Closures + SetTimeout()
 // Write a function countdown(n) that uses setTimeout() inside a closure to log numbers from n down to 1, with a 1-second delay between logs.
 
-let startNum = document.getElementById("startnum");
-let beginBtn = document.getElementById("begincount");
+// let startNum = document.getElementById("startnum");
+// let beginBtn = document.getElementById("begincount");
 
-function countdown(){
+// function countdown(){
 
-    return function decrement(n){
-        for(let i=n; i>0; i--){
-            setTimeout(() => console.log(`Num: ${i}`), (n - i + 1)* 1000);
-            }
-            setTimeout(() => console.log("Your countdown has ended."), n * 1000);
-        }
-    };
+//     return function decrement(n){
+//         for(let i=n; i>0; i--){
+//             setTimeout(() => console.log(`Num: ${i}`), (n - i + 1)* 1000);
+//             }
+//             setTimeout(() => console.log("Your countdown has ended."), n * 1000);
+//         }
+//     };
 
-const count = countdown();
+// const count = countdown();
 
-beginBtn.onclick = () => {
-    let num = Number(startNum.value);
-    if (!isNaN(num) && num > 0) {
-        count(num);
-    } else {
-        console.log("Please enter a valid positive number!");
+// beginBtn.onclick = () => {
+//     let num = Number(startNum.value);
+//     if (!isNaN(num) && num > 0) {
+//         count(num);
+//     } else {
+//         console.log("Please enter a valid positive number!");
+//     }
+// };
+
+// #26 Closures + Arrays of Objects
+// Make a function createUser(name) that returns an object with methods getName() and setName(newName). The name should only be accessible via these methods (hidden in a closure).
+
+function createUser(){
+    let name;
+
+    function getName(){
+        return name;
     }
-};
+
+    function setName(newName){
+        this._name = newName;
+    }
+}
+
+const cuGet = new createUser();
+cuGet.setName("Abebe");
+console.log(`Name: ${cuGet.getName()}`);
