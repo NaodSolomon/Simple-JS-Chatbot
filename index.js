@@ -452,12 +452,29 @@
 
 // Sort the products by price in descending order.
 
-const products = [
-    {name: "Laptop", price: 1200},
-    {name: "Phone", price: 800},
-    {name: "Tablet", price: 600}
-];
+// const products = [
+//     {name: "Laptop", price: 1200},
+//     {name: "Phone", price: 800},
+//     {name: "Tablet", price: 600}
+// ];
 
-const sortedProducts = products.sort((a,b) => b.price - a.price);
+// const sortedProducts = products.sort((a,b) => b.price - a.price);
 
-console.log(sortedProducts);
+// console.log(sortedProducts);
+
+// #22 Shuffle an Array + Sorting
+// Write a function shuffleAndSort(arr) that first shuffles an array randomly, then sorts it in ascending order.
+
+function shuffleAndSort(arr){
+
+    for (let i= arr.length - 1; i>0; i--){
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+    
+    return arr.sort((a,b) => a-b);
+}
+
+let arr = [10, 50, 43, 60, 80,1,2,44,12,78,23,33,11,9,6,4,55,70];
+
+console.log(shuffleAndSort(arr));
