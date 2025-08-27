@@ -406,36 +406,58 @@
 // #20 Nested Objects + Arrays of Objects
 // Create an object school with a property students, which is an array of objects. Each student should have a name and grades (an array of numbers). Write code to log the average grade for the first student.
 
-class Students{
-    constructor(name, grades) {
-        this.name = name;
-        this.grades = grades;
-    }
+// class Students{
+//     constructor(name, grades) {
+//         this.name = name;
+//         this.grades = grades;
+//     }
 
-    average() {
-    const sum = this.grades.reduce((a, b) => a + b);
-    return sum / this.grades.length;
-  }
-}
+//     average() {
+//     const sum = this.grades.reduce((a, b) => a + b);
+//     return sum / this.grades.length;
+//   }
+// }
 
-class School{
-    constructor(students){
-        this.students = students;
-    }
+// class School{
+//     constructor(students){
+//         this.students = students;
+//     }
 
-    display() {
-    this.students.forEach(element => {
-        console.log(`Student Name: ${element.name}`);
-        console.log(`Average Grade: ${element.average()}`);
-        console.log(`-----------------------`);
-    });
+//     display() {
+//     this.students.forEach(element => {
+//         console.log(`Student Name: ${element.name}`);
+//         console.log(`Average Grade: ${element.average()}`);
+//         console.log(`-----------------------`);
+//     });
 
-  }
-}
+//   }
+// }
 
-const abebe = new Students("Abebe", [24,54,66,72] )
-const kebede = new Students("Kebede", [55,65,90,79])
-const liya = new Students("Liya", [60,90,10,70])
+// const abebe = new Students("Abebe", [24,54,66,72] )
+// const kebede = new Students("Kebede", [55,65,90,79])
+// const liya = new Students("Liya", [60,90,10,70])
 
-const school = new School([abebe,kebede,liya]);
-school.display();
+// const school = new School([abebe,kebede,liya]);
+// school.display();
+
+// #21 Sorting + Arrays of Objects
+// Given:
+
+// const products = [
+//   {name: "Laptop", price: 1200},
+//   {name: "Phone", price: 800},
+//   {name: "Tablet", price: 600}
+// ];
+
+
+// Sort the products by price in descending order.
+
+const products = [
+    {name: "Laptop", price: 1200},
+    {name: "Phone", price: 800},
+    {name: "Tablet", price: 600}
+];
+
+const sortedProducts = products.sort((a,b) => b.price - a.price);
+
+console.log(sortedProducts);
